@@ -1,6 +1,6 @@
-@Shelter.Backend_HostAddress = http://localhost:5179
+@Shelter.API_HostAddress = http://localhost:5179
 
-GET {{Shelter.Backend_HostAddress}}/weatherforecast/
+GET {{Shelter.API_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
