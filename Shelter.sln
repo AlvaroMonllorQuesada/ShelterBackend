@@ -3,16 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.API", "Shelter.Backend\Shelter.API.csproj", "{324DD40C-54D7-403D-9281-570947DFDC3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.API", "src/Shelter.API\Shelter.API.csproj", "{324DD40C-54D7-403D-9281-570947DFDC3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Infrastructure", "Shelter.Infrastructure\Shelter.Infrastructure.csproj", "{FB941398-8E1C-4896-BC65-419FDCFB40C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Infrastructure", "src/Shelter.Infrastructure\Shelter.Infrastructure.csproj", "{FB941398-8E1C-4896-BC65-419FDCFB40C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Application", "Shelter.Application\Shelter.Application.csproj", "{13833C91-B86A-40FB-9611-65F7B631FD11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Application", "src/Shelter.Application\Shelter.Application.csproj", "{13833C91-B86A-40FB-9611-65F7B631FD11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Shared", "Shelter.Shared\Shelter.Shared.csproj", "{148A29D0-A2E0-435B-84DD-9F537AC86E53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shelter.Shared", "src/Shelter.Shared\Shelter.Shared.csproj", "{148A29D0-A2E0-435B-84DD-9F537AC86E53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{8346A542-1A5F-4A4E-BC94-FCDE1B5E8F8A}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
