@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Shelter.Infrastructure.Data;
 
 public partial class AnimalShelterDbContext : DbContext
 {
-    private readonly IConfiguration _configuration;
+    public AnimalShelterDbContext()
+    {
+    }
 
-    public AnimalShelterDbContext(DbContextOptions<AnimalShelterDbContext> options, IConfiguration configuration)
+    public AnimalShelterDbContext(DbContextOptions<AnimalShelterDbContext> options)
         : base(options)
     {
-        _configuration = configuration;
     }
 
     public virtual DbSet<Animal> Animals { get; set; }
@@ -36,18 +36,14 @@ public partial class AnimalShelterDbContext : DbContext
     public virtual DbSet<VolunteerShiftAssignment> VolunteerShiftAssignments { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
-        }
-    }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=localhost,1433;Database=Shelter;User Id=sa;Password=PaSSW0RD;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Animal>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Animal__3214EC07E3AA3C50");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07E44F8BBC");
 
             entity.ToTable("Animal");
 
@@ -62,7 +58,7 @@ public partial class AnimalShelterDbContext : DbContext
             entity.HasOne(d => d.Shelter).WithMany(p => p.Animals)
                 .HasForeignKey(d => d.ShelterId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Animal__ShelterI__4F7CD00D");
+                .HasConstraintName("FK__Animal__ShelterI__5EBF139D");
         });
 
         modelBuilder.Entity<AnimalHealthRecord>(entity =>
@@ -104,7 +100,7 @@ public partial class AnimalShelterDbContext : DbContext
 
         modelBuilder.Entity<AnimalTreatment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalTr__3214EC0769B60ECD");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC074F3D5BCD");
 
             entity.ToTable("AnimalTreatment");
 
@@ -161,22 +157,27 @@ public partial class AnimalShelterDbContext : DbContext
 
         modelBuilder.Entity<Volunteer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Voluntee__3214EC07D2C10144");
+            entity.HasKey(e => e.Id).HasName("PK__tmp_ms_x__3214EC07406753A9");
 
             entity.ToTable("Volunteer");
 
+            entity.HasIndex(e => e.NormalizedUserName, "UQ__tmp_ms_x__54E8BE221103BA58").IsUnique();
+
+            entity.HasIndex(e => e.Email, "UQ__tmp_ms_x__A9D10534DF32E7F2").IsUnique();
+
+            entity.HasIndex(e => e.UserName, "UQ__tmp_ms_x__C9F28456E40C050F").IsUnique();
+
             entity.Property(e => e.City).HasMaxLength(50);
-            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.Email).HasMaxLength(256);
             entity.Property(e => e.JoinDate).HasColumnType("datetime");
-            entity.Property(e => e.LastName).HasMaxLength(50);
-            entity.Property(e => e.Name).HasMaxLength(50);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
             entity.Property(e => e.PhoneNumber).HasMaxLength(50);
             entity.Property(e => e.Role).HasMaxLength(50);
             entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.UserName).HasMaxLength(256);
 
             entity.HasOne(d => d.RoleNavigation).WithMany(p => p.Volunteers)
                 .HasForeignKey(d => d.RoleId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Volunteer_Role");
         });
 
