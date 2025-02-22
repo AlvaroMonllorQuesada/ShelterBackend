@@ -26,7 +26,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddApplicationServices();
+builder.Services.AddShelterAuth(configureJwt: builder.Configuration.GetSection("Jwt").Bind);
 
 builder.Services.AddControllers();
 

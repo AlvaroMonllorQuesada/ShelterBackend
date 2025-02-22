@@ -1,0 +1,19 @@
+<Project>
+    <PropertyGroup>
+        <AnalysisLevel>latest</AnalysisLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="AsyncFixer">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Lindhart.Analyser.MissingAwaitWarning">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="SonarAnalyzer.CSharp">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>

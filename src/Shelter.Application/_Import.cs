@@ -1,0 +1,9 @@
+global using Shelter.Application.Services;
+global using System;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;
+global using AutoMapper;
+global using Shelter.Infrastructure.Data;
+global using Shelter.Shared.DTOs;
+global using Shelter.Application.Configuration;
