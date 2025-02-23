@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Shelter.API.Features.Animals.GetAnimal;
 
 public record Handler() : GetHandlerAsync<Request>("/animals/{id}")

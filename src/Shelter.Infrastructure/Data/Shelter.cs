@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Shelter.Infrastructure.Data;
+﻿namespace Shelter.Infrastructure.Data;
 
 public partial class Shelter
 {
@@ -17,9 +14,9 @@ public partial class Shelter
 
     public int CurrentOccupation { get; set; }
 
-    public DateTime CreationDate { get; set; }
+    public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 
-    public DateTime LastUpdate { get; set; }
+    public DateTime LastUpdate { get; set; } = DateTime.UtcNow;
 
     public virtual ICollection<Animal> Animals { get; set; } = new List<Animal>();
 

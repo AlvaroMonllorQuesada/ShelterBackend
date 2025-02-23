@@ -15,7 +15,7 @@ public partial class AnimalMedium
 
     public string? Description { get; set; }
 
-    public DateTime UploadedDate { get; set; }
+    public DateTime UploadedDate { get; set; } = DateTime.UtcNow;
 
     public bool IsPrimary { get; set; }
 

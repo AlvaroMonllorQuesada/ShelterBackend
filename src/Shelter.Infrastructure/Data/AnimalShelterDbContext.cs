@@ -145,6 +145,8 @@ public partial class AnimalShelterDbContext : DbContext
                 .HasConstraintName("FK_ShelterZone_Shelter");
         });
 
+
+
         modelBuilder.Entity<UserRole>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__UserRole__3214EC0729C110B9");

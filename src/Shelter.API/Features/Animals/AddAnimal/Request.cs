@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Shelter.Infrastructure.Media;
 
 namespace Shelter.API.Features.Animals.AddAnimal;
 public record struct Request(

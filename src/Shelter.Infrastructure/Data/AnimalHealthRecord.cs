@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Shelter.Infrastructure.Data;
+﻿namespace Shelter.Infrastructure.Data;
 
 public partial class AnimalHealthRecord
 {

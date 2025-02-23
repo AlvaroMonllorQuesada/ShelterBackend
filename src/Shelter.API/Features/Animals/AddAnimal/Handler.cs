@@ -33,6 +33,7 @@ public record Handler() : PostHandlerAsync<Request>("/animals")
         };
 
         request.DbContext.Animals.Add(animal);
+        
         await request.DbContext.SaveChangesAsync(cancellationToken);
 
         return Results.Created();
