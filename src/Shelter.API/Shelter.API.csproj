@@ -13,6 +13,12 @@
     <PackageReference Include="Microsoft.Identity.Web" />
     <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" />
+    <PackageReference Include="MinApiLib.DependencyInjection" />
+    <PackageReference Include="MinApiLib.Endpoints" />
+    <PackageReference Include="MinApiLib.FluentValidation" />
+    <PackageReference Include="MinApiLib.OperationCanceled" />
+    <PackageReference Include="MinApiLib.Validation" />
+    <PackageReference Include="Scalar.AspNetCore" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shelter.Application\Shelter.Application.csproj" />

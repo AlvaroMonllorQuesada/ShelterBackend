@@ -25,11 +25,11 @@ public partial class Animal
 
     public int ShelterId { get; set; }
 
-    public virtual ICollection<AnimalHealthRecord> AnimalHealthRecords { get; set; } = new List<AnimalHealthRecord>();
+    public virtual ICollection<AnimalHealthRecord> AnimalHealthRecords { get; set; } = [];
 
-    public virtual ICollection<AnimalMedium> AnimalMedia { get; set; } = new List<AnimalMedium>();
+    public virtual ICollection<AnimalMedium> AnimalMedia { get; set; } = [];
 
-    public virtual ICollection<AnimalTreatment> AnimalTreatments { get; set; } = new List<AnimalTreatment>();
+    public virtual ICollection<AnimalTreatment> AnimalTreatments { get; set; } = [];
 
     public virtual Shelter Shelter { get; set; } = null!;
 }

@@ -7,20 +7,28 @@
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
     <PackageVersion Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageVersion Include="Lindhart.Analyser.MissingAwaitWarning" Version="2.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="9.0.2" />
     <PackageVersion Include="Microsoft.Identity.Web" Version="3.7.1" />
     <PackageVersion Include="Microsoft.Identity.Web.DownstreamApi" Version="3.7.1" />
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.1" />
+    <PackageVersion Include="MinApiLib.DependencyInjection" Version="9.0.0" />
+    <PackageVersion Include="MinApiLib.Endpoints" Version="9.0.0" />
+    <PackageVersion Include="MinApiLib.FluentValidation" Version="9.0.0" />
+    <PackageVersion Include="MinApiLib.OperationCanceled" Version="9.0.0" />
+    <PackageVersion Include="MinApiLib.Validation" Version="9.0.0" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.0.18" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.6.0.109712" />
+    <PackageVersion Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.2.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.5.0" />
   </ItemGroup>
 </Project>

@@ -1,13 +1,31 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Identity.Web;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Protocols.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Shelter.Application;
+using MinApiLib.DependencyInjection;
+using Scalar.AspNetCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
-var strKey = builder.Configuration["Jwt:Key"] ?? throw new Exception("Jwt:Key is missing in appsettings.json");
+var strKey = builder.Configuration["Jwt:Key"] ?? throw new InvalidConfigurationException("Jwt:Key is missing in appsettings.json");
 var key = Encoding.UTF8.GetBytes(strKey);
+
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddShelterInMemoryDatabase();
+}
+else
+{
+    builder.Services.AddShelterDatabase();
+}
+builder.Services.AddControllers();
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddAssembly()
+    .AddOpenApi(opt =>
+    {
+        opt.ShouldInclude = (type) => type.GroupName == "Animals";
+    });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -24,25 +42,28 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization();
-
-builder.Services.AddShelterAuth(configureJwt: builder.Configuration.GetSection("Jwt").Bind);
-
-builder.Services.AddControllers();
-
-builder.Services.AddOpenApi();
+builder.Services
+    .AddAuthorization()
+    .AddShelterAuth(configureJwt: builder.Configuration.GetSection("Jwt").Bind);
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options
+            .WithTheme(ScalarTheme.BluePlanet)
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
+            .WithDarkMode(true);
+    });
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.MapEndpoints();
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

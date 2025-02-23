@@ -35,8 +35,8 @@ public partial class AnimalShelterDbContext : DbContext
 
     public virtual DbSet<VolunteerShiftAssignment> VolunteerShiftAssignments { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=localhost,1433;Database=Shelter;User Id=sa;Password=PaSSW0RD;TrustServerCertificate=True");
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //     => optionsBuilder.UseSqlServer("Server=localhost,1433;Database=Shelter;User Id=sa;Password=PaSSW0RD;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
